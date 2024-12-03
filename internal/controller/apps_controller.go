@@ -24,7 +24,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	opsv1alpha1 "github.com/fanny7d/ops-operator/api/v1alpha1"
+	opsv1beta1 "github.com/fanny7d/ops-operator/api/v1beta1"
 )
 
 // AppsReconciler reconciles a Apps object
@@ -33,9 +33,9 @@ type AppsReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-// +kubebuilder:rbac:groups=ops.fanny7d.com,resources=apps,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=ops.fanny7d.com,resources=apps/status,verbs=get;update;patch
-// +kubebuilder:rbac:groups=ops.fanny7d.com,resources=apps/finalizers,verbs=update
+// +kubebuilder:rbac:groups=ops.fanny7d.io,resources=apps,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=ops.fanny7d.io,resources=apps/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=ops.fanny7d.io,resources=apps/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -57,6 +57,6 @@ func (r *AppsReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.
 // SetupWithManager sets up the controller with the Manager.
 func (r *AppsReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&opsv1alpha1.Apps{}).
+		For(&opsv1beta1.Apps{}).
 		Complete(r)
 }

@@ -2,7 +2,7 @@
 # This file is used to track the info used to scaffold your project
 # and allow the plugins properly work.
 # More info: https://book.kubebuilder.io/reference/project-config.html
-domain: fanny7d.com
+domain: fanny7d.io
 layout:
 - go.kubebuilder.io/v4
 plugins:
@@ -15,9 +15,9 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: fanny7d.com
+  domain: fanny7d.io
   group: ops
   kind: Apps
-  path: github.com/fanny7d/ops-operator/api/v1alpha1
-  version: v1alpha1
+  path: github.com/fanny7d/ops-operator/api/v1beta1
+  version: v1beta1
 version: "3"

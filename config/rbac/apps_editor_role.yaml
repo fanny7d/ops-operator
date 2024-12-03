@@ -8,7 +8,7 @@ metadata:
   name: apps-editor-role
 rules:
 - apiGroups:
-  - ops.fanny7d.com
+  - ops.fanny7d.io
   resources:
   - apps
   verbs:
@@ -20,7 +20,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - ops.fanny7d.com
+  - ops.fanny7d.io
   resources:
   - apps/status
   verbs:

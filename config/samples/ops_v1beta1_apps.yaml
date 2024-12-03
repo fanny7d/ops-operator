@@ -1,4 +1,4 @@
-apiVersion: ops.fanny7d.com/v1alpha1
+apiVersion: ops.fanny7d.io/v1beta1
 kind: Apps
 metadata:
   labels:

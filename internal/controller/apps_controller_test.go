@@ -27,7 +27,7 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	opsv1alpha1 "github.com/fanny7d/ops-operator/api/v1alpha1"
+	opsv1beta1 "github.com/fanny7d/ops-operator/api/v1beta1"
 )
 
 var _ = Describe("Apps Controller", func() {
@@ -40,13 +40,13 @@ var _ = Describe("Apps Controller", func() {
 			Name:      resourceName,
 			Namespace: "default", // TODO(user):Modify as needed
 		}
-		apps := &opsv1alpha1.Apps{}
+		apps := &opsv1beta1.Apps{}
 
 		BeforeEach(func() {
 			By("creating the custom resource for the Kind Apps")
 			err := k8sClient.Get(ctx, typeNamespacedName, apps)
 			if err != nil && errors.IsNotFound(err) {
-				resource := &opsv1alpha1.Apps{
+				resource := &opsv1beta1.Apps{
 					ObjectMeta: metav1.ObjectMeta{
 						Name:      resourceName,
 						Namespace: "default",
@@ -59,7 +59,7 @@ var _ = Describe("Apps Controller", func() {
 
 		AfterEach(func() {
 			// TODO(user): Cleanup logic after each test, like removing the resource instance.
-			resource := &opsv1alpha1.Apps{}
+			resource := &opsv1beta1.Apps{}
 			err := k8sClient.Get(ctx, typeNamespacedName, resource)
 			Expect(err).NotTo(HaveOccurred())
 

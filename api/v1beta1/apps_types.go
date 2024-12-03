@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package v1alpha1
+package v1beta1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -25,11 +25,9 @@ import (
 
 // AppsSpec defines the desired state of Apps
 type AppsSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of Apps. Edit apps_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Replicas int32  `json:"replicas"`
+	Image    string `json:"image"`
+	Port     int32  `json:"port"`
 }
 
 // AppsStatus defines the observed state of Apps

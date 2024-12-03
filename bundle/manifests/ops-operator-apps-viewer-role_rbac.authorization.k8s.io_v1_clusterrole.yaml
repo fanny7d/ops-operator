@@ -8,7 +8,7 @@ metadata:
   name: ops-operator-apps-viewer-role
 rules:
 - apiGroups:
-  - ops.fanny7d.com
+  - ops.fanny7d.io
   resources:
   - apps
   verbs:
@@ -16,7 +16,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - ops.fanny7d.com
+  - ops.fanny7d.io
   resources:
   - apps/status
   verbs:

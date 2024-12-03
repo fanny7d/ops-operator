@@ -5,7 +5,7 @@ metadata:
     alm-examples: |-
       [
         {
-          "apiVersion": "ops.fanny7d.com/v1alpha1",
+          "apiVersion": "ops.fanny7d.io/v1beta1",
           "kind": "Apps",
           "metadata": {
             "labels": {
@@ -18,7 +18,7 @@ metadata:
         }
       ]
     capabilities: Basic Install
-    createdAt: "2024-12-03T12:37:16Z"
+    createdAt: "2024-12-03T14:55:19Z"
     operators.operatorframework.io/builder: operator-sdk-v1.38.0
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v4
   name: ops-operator.v0.0.1
@@ -30,10 +30,11 @@ spec:
     - description: Apps is the Schema for the apps API
       displayName: Apps
       kind: Apps
-      name: apps.ops.fanny7d.com
-      version: v1alpha1
-  description: A simple operator to automate resource management in Kubernetes.
-  displayName: ops operator
+      name: apps.ops.fanny7d.io
+      version: v1beta1
+  description: An operator for managing Kubernetes resources including Deployment,
+    Service, and Ingress.
+  displayName: OPS Operator
   icon:
   - base64data: ""
     mediatype: ""
@@ -42,7 +43,7 @@ spec:
       clusterPermissions:
       - rules:
         - apiGroups:
-          - ops.fanny7d.com
+          - ops.fanny7d.io
           resources:
           - apps
           verbs:
@@ -54,13 +55,13 @@ spec:
           - update
           - watch
         - apiGroups:
-          - ops.fanny7d.com
+          - ops.fanny7d.io
           resources:
           - apps/finalizers
           verbs:
           - update
         - apiGroups:
-          - ops.fanny7d.com
+          - ops.fanny7d.io
           resources:
           - apps/status
           verbs:
@@ -106,7 +107,7 @@ spec:
                 - --health-probe-bind-address=:8081
                 command:
                 - /manager
-                image: superfan.myasustor.com:8443/docker-local/ops-operator:v0.0.1
+                image: fanny7d/ops-operator:v0.0.1
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -181,12 +182,17 @@ spec:
   - supported: true
     type: AllNamespaces
   keywords:
+  - kubernetes
+  - operator
   - ops
   - automation
-  - devops
+  - deployment
   links:
   - name: Ops Operator
     url: https://ops-operator.domain
+  maintainers:
+  - email: fanchao1510@outlook.com
+    name: fanchao
   maturity: alpha
   provider:
     name: Ops Team

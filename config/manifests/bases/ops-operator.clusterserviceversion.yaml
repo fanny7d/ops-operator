@@ -13,10 +13,11 @@ spec:
     - description: Apps is the Schema for the apps API
       displayName: Apps
       kind: Apps
-      name: apps.ops.fanny7d.com
-      version: v1alpha1
-  description: A simple operator to automate resource management in Kubernetes.
-  displayName: ops operator
+      name: apps.ops.fanny7d.io
+      version: v1beta1
+  description: An operator for managing Kubernetes resources including Deployment,
+    Service, and Ingress.
+  displayName: OPS Operator
   icon:
   - base64data: ""
     mediatype: ""
@@ -34,12 +35,17 @@ spec:
   - supported: true
     type: AllNamespaces
   keywords:
+  - kubernetes
+  - operator
   - ops
   - automation
-  - devops
+  - deployment
   links:
   - name: Ops Operator
     url: https://ops-operator.domain
+  maintainers:
+  - email: fanchao1510@outlook.com
+    name: fanchao
   maturity: alpha
   provider:
     name: Ops Team
