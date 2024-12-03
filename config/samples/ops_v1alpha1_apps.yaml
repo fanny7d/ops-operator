@@ -1,0 +1,9 @@
+apiVersion: ops.fanny7d.com/v1alpha1
+kind: Apps
+metadata:
+  labels:
+    app.kubernetes.io/name: ops-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: apps-sample
+spec:
+  # TODO(user): Add fields here

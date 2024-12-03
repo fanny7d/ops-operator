@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ops-operator
+  name: ops-operator-apps-viewer-role
+rules:
+- apiGroups:
+  - ops.fanny7d.com
+  resources:
+  - apps
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ops.fanny7d.com
+  resources:
+  - apps/status
+  verbs:
+  - get
