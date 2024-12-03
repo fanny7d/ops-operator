@@ -39,13 +39,27 @@ spec:
           spec:
             description: AppsSpec defines the desired state of Apps
             properties:
-              foo:
-                description: Foo is an example field of Apps. Edit apps_types.go to
-                  remove/update
+              image:
                 type: string
+              port:
+                format: int32
+                type: integer
+              replicas:
+                format: int32
+                type: integer
+            required:
+            - image
+            - port
+            - replicas
             type: object
           status:
             description: AppsStatus defines the observed state of Apps
+            properties:
+              availableReplicas:
+                format: int32
+                type: integer
+            required:
+            - availableReplicas
             type: object
         type: object
     served: true

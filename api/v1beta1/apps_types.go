@@ -25,21 +25,29 @@ import (
 
 // AppsSpec defines the desired state of Apps
 type AppsSpec struct {
-	Replicas int32  `json:"replicas"`
-	Image    string `json:"image"`
-	Port     int32  `json:"port"`
+	Replicas    int32  `json:"replicas"`
+	Image       string `json:"image"`
+	Port        int32  `json:"port"`
+	IngressHost string `json:"ingressHost,omitempty"` // 自定义域名，留空则不创建 Ingress
 }
 
 // AppsStatus defines the observed state of Apps
 type AppsStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	AvailableReplicas int32 `json:"availableReplicas"`
 }
 
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
 
 // Apps is the Schema for the apps API
+// +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
+// +kubebuilder:printcolumn:name="Replicas",type="integer",JSONPath=".spec.replicas",description="Desired number of replicas"
+// +kubebuilder:printcolumn:name="Image",type="string",JSONPath=".spec.image",description="Container image"
+// +kubebuilder:printcolumn:name="Port",type="integer",JSONPath=".spec.port",description="Container port"
+// +kubebuilder:printcolumn:name="Available",type="integer",JSONPath=".status.availableReplicas",description="Available replicas"
+// +kubebuilder:printcolumn:name="IngressHost",type="string",JSONPath=".spec.ingressHost",description="Ingress Hostname"
+// +kubebuilder:printcolumn:name="Age",type="date",JSONPath=".metadata.creationTimestamp",description="Age of the resource"
 type Apps struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
